@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+//Replace With Your Own Github Username
+const Github_Username = "huzeyef";
 
-You can use the [editor on GitHub](https://github.com/huzeyef/WebsiteX/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+//Replace With Your Own Email ID
+const Email_Id = "huzeyef15@gmail.com";
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+var xhr = new XMLHttpRequest();
+xhr.addEventListener("readystatechange", function() {
+    if (this.readyState === 4) {
+        var data = JSON.parse(this.responseText);
+        document.title = data.name;
+        document.getElementById("avatar").src = data.avatar_url;
+        document.getElementById("name").innerHTML = data.name;
+        document.getElementById("bio").innerHTML = data.bio;
+        document.getElementById("github").href = data.html_url;
+        if (data.twitter_username == "null") {
+            document.getElementById("twitter").style.display = "none";
+        } else {
+            document.getElementById("space").innerHTML = "&nbsp";
+            document.getElementById("twitter").href = "https://twitter.com/" + data.twitter_username;
+        }
+    }
+});
 
-### Markdown
+xhr.open("GET", "https://api.github.com/users/" + Github_Username);
+xhr.send();
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+document.getElementById("email").innerHTML = Email_Id;
 
-```markdown
-Syntax highlighted code block
+function mailF() {
+    window.open("mailto:" + Email_Id);
+}
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/huzeyef/WebsiteX/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+/*!
