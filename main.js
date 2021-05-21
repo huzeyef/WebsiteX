@@ -1,8 +1,8 @@
 //Replace With Your Own Github Username
-const Github_Username = "OlikaX404";
+const Github_Username = "huzeyef";
 
 //Replace With Your Own Email ID
-const Email_Id = "olikaamsalu8@gmail.com";
+const Email_Id = "huzeyef15@gmail.com";
 
 var xhr = new XMLHttpRequest();
 xhr.addEventListener("readystatechange", function() {
